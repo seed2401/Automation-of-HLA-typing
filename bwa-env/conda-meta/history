@@ -1,0 +1,5 @@
+==> 2025-07-31 08:52:05 <==
+# cmd: /home/sid_code/miniconda3/bin/conda create --prefix /mnt/c/App/bwa-env -c bioconda bwa=0.7.12
+# conda version: 25.5.1
++bioconda/linux-64::bwa-0.7.12-1
+# update specs: ['bwa=0.7.12']

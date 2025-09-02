@@ -1,0 +1,35 @@
+{
+  "build": "1",
+  "build_number": 1,
+  "channel": "https://conda.anaconda.org/bioconda/linux-64",
+  "constrains": [],
+  "depends": [],
+  "extracted_package_dir": "/home/sid_code/miniconda3/pkgs/bwa-0.7.12-1",
+  "files": [
+    "bin/bwa"
+  ],
+  "fn": "bwa-0.7.12-1.tar.bz2",
+  "license": "MIT",
+  "link": {
+    "source": "/home/sid_code/miniconda3/pkgs/bwa-0.7.12-1",
+    "type": 1
+  },
+  "md5": "a8b7ab9bf15249e2943a16504e6126dd",
+  "name": "bwa",
+  "package_tarball_full_path": "/home/sid_code/miniconda3/pkgs/bwa-0.7.12-1.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "bin/bwa",
+        "path_type": "hardlink"
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "bwa=0.7.12",
+  "sha256": "2cd2649a71b500c4eaafbc088c0e4a77f4ca465e20834118371c8c898c6d507e",
+  "size": 518674,
+  "subdir": "linux-64",
+  "url": "https://conda.anaconda.org/bioconda/linux-64/bwa-0.7.12-1.tar.bz2",
+  "version": "0.7.12"
+}
