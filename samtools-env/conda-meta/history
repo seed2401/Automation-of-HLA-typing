@@ -1,0 +1,34 @@
+==> 2025-07-29 12:40:23 <==
+# cmd: /home/sid_code/miniconda3/bin/conda create -p /mnt/c/App/samtools-env samtools=1.14
+# conda version: 25.5.1
++bioconda/linux-64::htslib-1.21-h5efdd21_0
++bioconda/linux-64::samtools-1.14-hb421002_0
++conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge
++conda-forge/linux-64::_openmp_mutex-4.5-2_gnu
++conda-forge/linux-64::bzip2-1.0.8-h4bc722e_7
++conda-forge/linux-64::c-ares-1.34.5-hb9d3cd8_0
++conda-forge/linux-64::keyutils-1.6.1-h166bdaf_0
++conda-forge/linux-64::krb5-1.21.3-h659f571_0
++conda-forge/linux-64::libcurl-8.8.0-hca28451_1
++conda-forge/linux-64::libdeflate-1.24-h86f0d12_0
++conda-forge/linux-64::libedit-3.1.20191231-he28a2e2_2
++conda-forge/linux-64::libev-4.33-hd590300_2
++conda-forge/linux-64::libgcc-15.1.0-h767d61c_3
++conda-forge/linux-64::libgcc-ng-15.1.0-h69a702a_3
++conda-forge/linux-64::libgomp-15.1.0-h767d61c_3
++conda-forge/linux-64::liblzma-5.8.1-hb9d3cd8_2
++conda-forge/linux-64::liblzma-devel-5.8.1-hb9d3cd8_2
++conda-forge/linux-64::libnghttp2-1.58.0-h47da74e_1
++conda-forge/linux-64::libssh2-1.11.0-h0841786_0
++conda-forge/linux-64::libstdcxx-15.1.0-h8f9b012_3
++conda-forge/linux-64::libstdcxx-ng-15.1.0-h4852527_3
++conda-forge/linux-64::libzlib-1.2.13-h4ab18f5_6
++conda-forge/linux-64::ncurses-6.2-h58526e2_4
++conda-forge/linux-64::openssl-3.5.1-h7b32b05_0
++conda-forge/linux-64::xz-5.8.1-hbcc6ac9_2
++conda-forge/linux-64::xz-gpl-tools-5.8.1-hbcc6ac9_2
++conda-forge/linux-64::xz-tools-5.8.1-hb9d3cd8_2
++conda-forge/linux-64::zlib-1.2.13-h4ab18f5_6
++conda-forge/linux-64::zstd-1.5.6-ha6fb4c9_0
++conda-forge/noarch::ca-certificates-2025.7.14-hbd8a1cb_0
+# update specs: ['samtools=1.14']
