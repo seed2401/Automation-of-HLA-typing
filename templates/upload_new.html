@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRAM File Processing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        form {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            display: block; /* Change to block to ensure full width */
+            margin: 0 auto; /* Center the form */
+        }
+        input[type="file"] {
+            margin: 10px 0;
+        }
+        .file-list {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            text-align: left;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px;
+            margin: 2px 0;
+            background-color: white;
+            border-radius: 3px;
+        }
+        .remove-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 2px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .remove-btn:hover {
+            background-color: #c82333;
+        }
+        input[type="text"] {
+            margin: 10px 0;
+            padding: 5px;
+            width: 300px;
+        }
+        button {
+            background-color:#28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .file-info {
+            margin: 10px 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Upload CRAM/CRAI Files for Processing</h2>
+    
+    <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+        <label for="fileInput">Select files:</label><br>
+        <input type="file" id="fileInput" multiple><br>
+        <div class="file-info">Click "Choose Files" to select multiple files at once, or add files one by one</div>
+        
+        <div id="fileList" class="file-list" style="display: none;">
+            <strong>Selected Files:</strong>
+            <div id="filesContainer"></div>
+        </div>
+        
+        <label for="outputDir">Output Directory:</label><br>
+        <input type="text" name="outputDir" id="outputDir" placeholder="/path/to/output" required><br><br>
+
+        <button type="submit" id="submitBtn" disabled>Upload & Process Files</button>
+    </form>
+
+    <script>
+        let selectedFiles = [];
+
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const files = Array.from(e.target.files);
+            
+            files.forEach(file => {
+                // Check if file is already selected
+                if (!selectedFiles.some(f => f.name === file.name && f.size === file.size)) {
+                    selectedFiles.push(file);
+                }
+            });
+            
+            updateFileList();
+            // Clear the input so the same file can be selected again if needed
+            e.target.value = '';
+        });
+
+        function updateFileList() {
+            const fileListDiv = document.getElementById('fileList');
+            const filesContainer = document.getElementById('filesContainer');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            if (selectedFiles.length > 0) {
+                fileListDiv.style.display = 'block';
+                filesContainer.innerHTML = '';
+                
+                selectedFiles.forEach((file, index) => {
+                    const fileItem = document.createElement('div');
+                    fileItem.className = 'file-item';
+                    fileItem.innerHTML = `
+                        <span>${file.name} (${formatFileSize(file.size)})</span>
+                        <button type="button" class="remove-btn" onclick="removeFile(${index})">Remove</button>
+                    `;
+                    filesContainer.appendChild(fileItem);
+                });
+                
+                submitBtn.disabled = false;
+                
+                // Update info text
+                document.querySelector('.file-info').innerHTML = `${selectedFiles.length} file(s) selected. Select multiple files at once or add more one by one.`;
+                document.querySelector('.file-info').style.color = '#28a745';
+            } else {
+                fileListDiv.style.display = 'none';
+                submitBtn.disabled = true;
+                document.querySelector('.file-info').innerHTML = 'Click "Choose Files" to select multiple files at once, or add files one by one';
+                document.querySelector('.file-info').style.color = '#666';
+            }
+        }
+
+        function removeFile(index) {
+            selectedFiles.splice(index, 1);
+            updateFileList();
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // Before form submission, create a FileList with all selected files
+        document.querySelector('form').addEventListener('submit', function(e) {
+            if (selectedFiles.length === 0) {
+                e.preventDefault();
+                alert('Please select at least one file');
+                return;
+            }
+            
+            // Create a DataTransfer object to build a new FileList
+            const dt = new DataTransfer();
+            selectedFiles.forEach(file => {
+                dt.items.add(file);
+            });
+            
+            // Create a hidden input with the files
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'file';
+            hiddenInput.name = 'cramFiles';
+            hiddenInput.files = dt.files;
+            hiddenInput.style.display = 'none';
+            hiddenInput.multiple = true;
+            
+            this.appendChild(hiddenInput);
+        });
+    </script>
+
+</body>
+</html>
