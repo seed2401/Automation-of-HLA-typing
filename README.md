@@ -62,6 +62,6 @@ Renv can be set up by the following commands:
 
 Once the repository has been cloned and all packages have been installed and configured. From terminal run **python app_new**
 
-This provides a message saying "running on http://127.0.0.1:5000" Click on this link and upload the CRAM file/files that require HLA calling along with /path/to/output directory. You can track progress by reading the commands on the terminal, keeping track of new files that are being added to the output direcotry or by running the command "top" in a new terminal window.
+This outputs a message saying "running on http://127.0.0.1:5000" Click on this link and upload the CRAM file/files that require HLA calling along with /path/to/output directory. You can track progress by reading the commands on the terminal, keeping track of new files that are being added to the output direcotry or by running the command "top" in a new terminal window.
 
 **NOTE:** If you install HLA-LA and Renv in a directory other than where you clone this repositry, the path to these tools need to be changed in the backend.sh script to point to the right files. Hence, installing the files in the same directory as the clone is recommended.
