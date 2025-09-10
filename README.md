@@ -6,7 +6,7 @@ The app requires java to be preinstalled in order to function. If there is no ja
 
 The app is made for linux based systems i.e macOS and the commands do not work on windows powershell. It is recommended that both macOS and Windows users work on Visual Studio Code (VS Code) as it helps in keeping tab of all dependencies. VS code is free to download via https://code.visualstudio.com/. Windows users can initialise a wsl window through Ubuntu 22.04LTS.
 
-#### **Reference genome**
+### **Reference genome**
 
 You can download the reference genome file using the link below https://drive.google.com/uc?export=download&id=1MtsSA9TTzHyUq82wshRisWap48c-cCkv. (File size: 3GB)
 
@@ -22,7 +22,7 @@ Miniconda can be installed into the same directory as the cloned repository by f
 3. source $HOME/miniconda3/bin/activate
 4. conda --version
 
-#### **HLA-LA download and configuration**
+## **HLA-LA download and configuration**
 
 HLA-LA can be installed via conda by the following steps:
 1. conda config --add channels default
