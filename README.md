@@ -9,6 +9,7 @@ The app is made for linux based systems i.e macOS and the commands do not work o
 **Reference genome**
 
 You can download the reference genome file using the link below https://drive.google.com/uc?export=download&id=1MtsSA9TTzHyUq82wshRisWap48c-cCkv. (File size: 3GB)
+
 It is recommended to download the file in the same place as the cloned repository in order to avoid editing the backend script and any additional complications.
 
 **Recommended practice for downloading HLA-LA and Rscript**
