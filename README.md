@@ -2,7 +2,7 @@
 
 This application integrates the HLA*LA tool developed by Alexander Dilthey and team available at https://github.com/DiltheyLab/HLA-LA. The repository contains most dependencies that are required to run the app, but a few files need to be installed as they are pivotal to a succesfsul run. These files include the reference genome file, HLA-LA and Rscript.
 
-The application is built to process CRAM/CRAI files and provide a excel compatible CSV file. If you need the entire CRAM file process, simply upload the file when prompted. However, if you need only a part of the CRAM file processed, uncomment the REGION variable in the file backend.sh and enter the region you wish to analyse. After adding the REGION variable, edit step one of the backend.sh script. The new command should now be **./samtools-env/bin/samtools  view -b -T $refgenome -o $BAM_FILE $CRAM_FILE $REGION**
+The application is built to process CRAM/CRAI files and provide an excel compatible CSV file. If you need the entire CRAM file processed, simply upload the file when prompted. However, if you need only a part of the CRAM file processed, uncomment the REGION variable in the file backend.sh and enter the region you wish to analyse. After adding the REGION variable, edit step one of the backend.sh script. The new command should now be **./samtools-env/bin/samtools  view -b -T $refgenome -o $BAM_FILE $CRAM_FILE $REGION**
 
 ### **Pre-requisites**
 1. The app requires java to be pre-installed in order to function. If there is no java installed, it can be easily done so by running the command **sudo apt install openjdk-11-jdk -y**
@@ -49,6 +49,8 @@ The data package stil needs to be installed and indexed in order to compare CRAM
 8. ../bin/HLA-LA --action prepareGraph --PRG_graph_dir ../graphs/PRG_MHC_GRCh38_withIMGT
 
 The final step may take a while and requires atleast 40GB of free memory. Manual compilaton steps are available on the github page for HLA*LA at https://github.com/DiltheyLab/HLA-LA along with debugging steps if any errors are faced. Once the graph is prepared and indexed, activate the HLA-LA environment using the command conda activate /path/to/App/hlaenv.
+
+If HLA-LA is manually compiled, you will need to edit the backend.sh file to point to the right place. The command **cd ./hlaenv/opt/hla-la/src** will need to be editted in order to call the right file. Similarly, you will need to go back the same number of directories to point to the main App directory before closing the for loop. Currently, the script goes up 4 directories using the command **cd ../../../..**
 
 ### **RScript installation and configuration**
 Renv can be set up by the following commands:
