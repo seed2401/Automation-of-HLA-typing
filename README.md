@@ -2,7 +2,7 @@
 
 This application integrates the HLA*LA tool developed by Alexander Dilthey and team available at https://github.com/DiltheyLab/HLA-LA. The repository contains most dependencies that are required to run the app, but a few files need to be installed as they are pivotal to a succesfsul run. These files include the reference genome file, HLA-LA and Rscript.
 
-The app requires java to be preinstalled in order to function. If there is no java installed, it can be easily done so by running the command sudo apt install openjdk-11-jdk -y
+The app requires java to be preinstalled in order to function. If there is no java installed, it can be easily done so by running the command **sudo apt install openjdk-11-jdk -y**
 
 The app is made for linux based systems i.e macOS and the commands do not work on windows powershell. It is recommended that both macOS and Windows users work on Visual Studio Code (VS Code) as it helps in keeping tab of all dependencies. VS code is free to download via https://code.visualstudio.com/. Windows users can initialise a wsl window through Ubuntu 22.04LTS.
 
