@@ -1,4 +1,5 @@
 **Introduction**
+
 This application integrates the HLA*LA tool developed by Alexander Dilthey and team available at https://github.com/DiltheyLab/HLA-LA. The repository contains most dependencies that are required to run the app, but a few files need to be installed as they are pivotal to a succesfsul run. These files include the reference genome file, HLA-LA and Rscript.
 
 The app requires java to be preinstalled in order to function. If there is no java installed, it can be easily done so by running the command sudo apt install openjdk-11-jdk -y
@@ -6,10 +7,12 @@ The app requires java to be preinstalled in order to function. If there is no ja
 The app is made for linux based systems i.e macOS and the commands do not work on windows powershell. It is recommended that both macOS and Windows users work on Visual Studio Code (VS Code) as it helps in keeping tab of all dependencies. VS code is free to download via https://code.visualstudio.com/. Windows users can initialise a wsl window through Ubuntu 22.04LTS.
 
 **Reference genome**
+
 You can download the reference genome file using the link below https://drive.google.com/uc?export=download&id=1MtsSA9TTzHyUq82wshRisWap48c-cCkv. (File size: 3GB)
 It is recommended to download the file in the same place as the cloned repository in order to avoid editing the backend script and any additional complications.
 
 **Recommended practice for downloading HLA-LA and Rscript**
+
 Two additional libraries need to be added in order for the pipeline to function. These are HLA-LA available at https://github.com/DiltheyLab/HLA-LA and R-Studio to combine all results. It is recommended to install these via conda as it manages all dependencies and linking. 
 
 Miniconda can be installed into the same directory as the cloned repository by following the below steps:
@@ -19,6 +22,7 @@ Miniconda can be installed into the same directory as the cloned repository by f
 4. conda --version
 
 **HLA-LA download and configuration**
+
 HLA-LA can be installed via conda by the following steps:
 1. conda config --add channels default
 2. conda config --add channels conda-forge
