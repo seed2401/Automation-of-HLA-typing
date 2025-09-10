@@ -22,7 +22,7 @@ Miniconda can be installed into the same directory as the cloned repository by f
 3. source $HOME/miniconda3/bin/activate
 4. conda --version
 
-## **HLA-LA download and configuration**
+# **HLA-LA download and configuration**
 
 HLA-LA can be installed via conda by the following steps:
 1. conda config --add channels default
