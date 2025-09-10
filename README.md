@@ -12,7 +12,7 @@ You can download the reference genome file using the link below https://drive.go
 
 It is recommended to download the file in the same place as the cloned repository in order to avoid editing the backend script and any additional complications.
 
-**Recommended practice for downloading HLA-LA and Rscript**
+## **Recommended practice for downloading HLA-LA and Rscript**
 
 Two additional libraries need to be added in order for the pipeline to function. These are HLA-LA available at https://github.com/DiltheyLab/HLA-LA and R-Studio to combine all results. It is recommended to install these via conda as it manages all dependencies and linking. 
 
