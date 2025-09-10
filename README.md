@@ -1,4 +1,4 @@
-**Introduction**
+#### **Introduction**
 
 This application integrates the HLA*LA tool developed by Alexander Dilthey and team available at https://github.com/DiltheyLab/HLA-LA. The repository contains most dependencies that are required to run the app, but a few files need to be installed as they are pivotal to a succesfsul run. These files include the reference genome file, HLA-LA and Rscript.
 
@@ -6,7 +6,7 @@ The app requires java to be preinstalled in order to function. If there is no ja
 
 The app is made for linux based systems i.e macOS and the commands do not work on windows powershell. It is recommended that both macOS and Windows users work on Visual Studio Code (VS Code) as it helps in keeping tab of all dependencies. VS code is free to download via https://code.visualstudio.com/. Windows users can initialise a wsl window through Ubuntu 22.04LTS.
 
-**Reference genome**
+#### **Reference genome**
 
 You can download the reference genome file using the link below https://drive.google.com/uc?export=download&id=1MtsSA9TTzHyUq82wshRisWap48c-cCkv. (File size: 3GB)
 
@@ -22,7 +22,7 @@ Miniconda can be installed into the same directory as the cloned repository by f
 3. source $HOME/miniconda3/bin/activate
 4. conda --version
 
-**HLA-LA download and configuration**
+#### **HLA-LA download and configuration**
 
 HLA-LA can be installed via conda by the following steps:
 1. conda config --add channels default
@@ -46,5 +46,11 @@ The data package stil needs to be installed and indexed in order to compare CRAM
 
 The final step may take a while and requires atleast 40GB of free memory. Manual compilaton steps are available on the github page for HLA*LA at https://github.com/DiltheyLab/HLA-LA along with debugging steps if any errors are faced. Once the graph is prepared and indexed, activate the HLA-LA environment using the command conda activate /path/to/App/hlaenv.
 
-**Renv download and configuration**
+#### **Renv download and configuration**
+Renv can be set up by the following commands:
+1. mkdir -p /path/to/App/Renv
+2. conda create --prefix /path/to/App/Renv -c conda-forge r-base
+3. conda activate /path/to/App/Renv
+4. conda install -c -conda-forge r-tidyr r-diplyr
+5. conda deactivate
 
