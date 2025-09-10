@@ -8,7 +8,7 @@ The application is built to process CRAM/CRAI files and provide a excel compatib
 1. The app requires java to be pre-installed in order to function. If there is no java installed, it can be easily done so by running the command **sudo apt install openjdk-11-jdk -y**
 2. The app requires python and pip to be pre-installed in order to call the app. Using pip, flask can be installed by the command **pip install flask**
 
-The app is made for linux based systems i.e macOS and the commands do not work on Windows Powershell. It is recommended that both macOS and Windows users work on Visual Studio Code (VS Code) as it helps in keeping tab of all dependencies. VS code is free to download via https://code.visualstudio.com/. Windows users can initialise a wsl window through Ubuntu 22.04LTS.
+The app is made for linux based systems i.e macOS and the commands do not work on Windows Powershell. It is recommended that both macOS and Windows users work on Visual Studio Code (VS Code) as it helps in keeping tab of all dependencies. VS code is free to download via https://code.visualstudio.com/. Windows users can initialise a WSL window through Ubuntu 22.04LTS.
 
 ### **Reference genome**
 
