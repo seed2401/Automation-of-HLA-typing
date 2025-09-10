@@ -26,7 +26,7 @@ Miniconda can be installed into the same directory as the cloned repository by f
 3. source $HOME/miniconda3/bin/activate
 4. conda --version
 
-### **HLA-LA download and configuration**
+### **HLA-LA installation and configuration**
 
 HLA-LA can be installed via conda by the following steps:
 1. conda config --add channels default
@@ -50,7 +50,7 @@ The data package stil needs to be installed and indexed in order to compare CRAM
 
 The final step may take a while and requires atleast 40GB of free memory. Manual compilaton steps are available on the github page for HLA*LA at https://github.com/DiltheyLab/HLA-LA along with debugging steps if any errors are faced. Once the graph is prepared and indexed, activate the HLA-LA environment using the command conda activate /path/to/App/hlaenv.
 
-### **Renv download and configuration**
+### **RScript installation and configuration**
 Renv can be set up by the following commands:
 1. mkdir -p /path/to/App/Renv
 2. conda create --prefix /path/to/App/Renv -c conda-forge r-base
@@ -60,8 +60,8 @@ Renv can be set up by the following commands:
 
 ### **Instructions to run the app**
 
-Once the repository has been cloned and all packages installed and configured. From terminal run **python app_new**
+Once the repository has been cloned and all packages have been installed and configured. From terminal run **python app_new**
 
-This provides a message saying "running on http://127.0.0.1:5000" Click on this link and upload the cram file/files that require HLA calling along with /path/to/output directory. You can track progress by reading the commands on the terminal. keeping track of new files that are being added to the output direcotry or by running the command "top" in a new terminal window.
+This provides a message saying "running on http://127.0.0.1:5000" Click on this link and upload the CRAM file/files that require HLA calling along with /path/to/output directory. You can track progress by reading the commands on the terminal, keeping track of new files that are being added to the output direcotry or by running the command "top" in a new terminal window.
 
 NOTE: If you install HLA-LA and Renv in a directory other than where you clone this repositry, the path to these tools need to be changed in the backend.sh script to point to the right files. Hence, installing the files in the same directory as the clone is recommended.
