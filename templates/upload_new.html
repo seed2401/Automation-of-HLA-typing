@@ -3,99 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRAM File Processing</title>
+    <title>HLA Mapper</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 60px;
         }
+
+        h2 {
+            font-size: 3.5em;
+            color: #1b5e20;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        h3 {
+            font-size: 1.8em;
+            color: #2e2e2e;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
         form {
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 10px;
-            display: block; /* Change to block to ensure full width */
-            margin: 0 auto; /* Center the form */
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
         }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
         input[type="file"] {
-            margin: 10px 0;
+            margin: 15px 0;
+            cursor: pointer;
         }
-        .file-list {
-            margin: 10px 0;
+
+        input[type="text"] {
+            width: 90%;
             padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-            text-align: left;
+            margin: 15px 0;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+
+        button {
+            background: linear-gradient(90deg, #43e97b, #38f9d7);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 1em;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .file-list {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 15px;
+            background: #f0f0f0;
             max-height: 200px;
             overflow-y: auto;
         }
+
         .file-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 5px;
-            margin: 2px 0;
-            background-color: white;
-            border-radius: 3px;
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
+
         .remove-btn {
-            background-color: #dc3545;
+            background-color: #ff4d4d;
             color: white;
             border: none;
-            padding: 2px 8px;
-            border-radius: 3px;
+            padding: 5px 12px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 12px;
+            font-size: 0.9em;
         }
+
         .remove-btn:hover {
-            background-color: #c82333;
+            background-color: #e60000;
         }
-        input[type="text"] {
-            margin: 10px 0;
-            padding: 5px;
-            width: 300px;
-        }
-        button {
-            background-color:#28a745;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #218838;
-        }
+
         .file-info {
-            margin: 10px 0;
             font-size: 0.9em;
             color: #666;
-        }
-        label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: inline-block;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
 
-    <h2>Upload CRAM/CRAI Files for Processing</h2>
-    
+    <h2>HLA Mapper</h2>
+    <h3>Upload CRAM/CRAI file for processing</h3>
+   
     <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
-        <label for="fileInput">Select files:</label><br>
-        <input type="file" id="fileInput" multiple><br>
+        <label for="fileInput">Select files:</label>
+        <input type="file" id="fileInput" multiple>
         <div class="file-info">Click "Choose Files" to select multiple files at once, or add files one by one</div>
-        
+       
         <div id="fileList" class="file-list" style="display: none;">
             <strong>Selected Files:</strong>
             <div id="filesContainer"></div>
         </div>
-        
-        <label for="outputDir">Output Directory:</label><br>
-        <input type="text" name="outputDir" id="outputDir" placeholder="/path/to/output" required><br><br>
-
+       
+        <label for="outputDir">Output Directory:</label>
+        <input type="text" name="outputDir" id="outputDir" placeholder="/path/to/output" required>
+       
         <button type="submit" id="submitBtn" disabled>Upload & Process Files</button>
     </form>
 
@@ -104,16 +148,12 @@
 
         document.getElementById('fileInput').addEventListener('change', function(e) {
             const files = Array.from(e.target.files);
-            
             files.forEach(file => {
-                // Check if file is already selected
                 if (!selectedFiles.some(f => f.name === file.name && f.size === file.size)) {
                     selectedFiles.push(file);
                 }
             });
-            
             updateFileList();
-            // Clear the input so the same file can be selected again if needed
             e.target.value = '';
         });
 
@@ -121,11 +161,11 @@
             const fileListDiv = document.getElementById('fileList');
             const filesContainer = document.getElementById('filesContainer');
             const submitBtn = document.getElementById('submitBtn');
-            
+
             if (selectedFiles.length > 0) {
                 fileListDiv.style.display = 'block';
                 filesContainer.innerHTML = '';
-                
+               
                 selectedFiles.forEach((file, index) => {
                     const fileItem = document.createElement('div');
                     fileItem.className = 'file-item';
@@ -135,16 +175,14 @@
                     `;
                     filesContainer.appendChild(fileItem);
                 });
-                
+
                 submitBtn.disabled = false;
-                
-                // Update info text
-                document.querySelector('.file-info').innerHTML = `${selectedFiles.length} file(s) selected. Select multiple files at once or add more one by one.`;
+                document.querySelector('.file-info').innerHTML = `${selectedFiles.length} file(s) selected.`;
                 document.querySelector('.file-info').style.color = '#28a745';
             } else {
                 fileListDiv.style.display = 'none';
                 submitBtn.disabled = true;
-                document.querySelector('.file-info').innerHTML = 'Click "Choose Files" to select multiple files at once, or add files one by one';
+                document.querySelector('.file-info').innerHTML = 'Click "Choose Files" to select files.';
                 document.querySelector('.file-info').style.color = '#666';
             }
         }
@@ -162,31 +200,25 @@
             return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
         }
 
-        // Before form submission, create a FileList with all selected files
         document.querySelector('form').addEventListener('submit', function(e) {
             if (selectedFiles.length === 0) {
                 e.preventDefault();
                 alert('Please select at least one file');
                 return;
             }
-            
-            // Create a DataTransfer object to build a new FileList
             const dt = new DataTransfer();
-            selectedFiles.forEach(file => {
-                dt.items.add(file);
-            });
-            
-            // Create a hidden input with the files
+            selectedFiles.forEach(file => dt.items.add(file));
+           
             const hiddenInput = document.createElement('input');
             hiddenInput.type = 'file';
             hiddenInput.name = 'cramFiles';
             hiddenInput.files = dt.files;
             hiddenInput.style.display = 'none';
             hiddenInput.multiple = true;
-            
             this.appendChild(hiddenInput);
         });
     </script>
 
 </body>
 </html>
+
