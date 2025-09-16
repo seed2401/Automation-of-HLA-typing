@@ -33,7 +33,7 @@ HLA-LA can be installed via conda by the following steps:
 2. conda config --add channels conda-forge
 3. conda config --add channels biconda
 4. conda update conda
-5. conda create -p /path/to/App/hlaenv -c bioconda hla-la
+5. conda create -p /path/to/Automation-of-HLA-typing/hlaenv -c bioconda hla-la
 6. mkdir /path/to/App/hlaenv/opt/hla-la/graphs
 7. cd /path/to/App/hlaenv/opt/hla-la/graphs
 
