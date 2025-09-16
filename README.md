@@ -34,8 +34,6 @@ HLA-LA can be installed via conda by the following steps:
 3. conda config --add channels biconda
 4. conda update conda
 5. conda create -p /path/to/Automation-of-HLA-typing/hlaenv -c bioconda hla-la
-6. mkdir /path/to/App/hlaenv/opt/hla-la/graphs
-7. cd /path/to/App/hlaenv/opt/hla-la/graphs
 
 The data package stil needs to be installed and indexed in order to compare CRAM files with a pre-processed graph. This can be achieved by the following set of commands:
 
