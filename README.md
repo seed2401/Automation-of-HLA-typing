@@ -37,11 +37,11 @@ HLA-LA can be installed via conda by the following steps:
 
 The data package stil needs to be installed and indexed in order to compare CRAM files with a pre-processed graph. This can be achieved by the following set of commands:
 
-1. mkdir /path/to/App/hlaenv/opt/hla-la/graphs
-2. cd /path/to/App/hlaenv/opt/hla-la/graphs
-3. wget http://www.well.ox.ac.uk/downloads/PRG_MHC_GRCh38_withIMGT.tar.gz
+1. mkdir /path/to/Automation-of-HLA-typing/hlaenv/opt/hla-la/graphs
+2. cd /path/to/Automation-of-HLA-typing/hlaenv/opt/hla-la/graphs
+3. wget http://www.well.ox.ac.uk/downloads/PRG_MHC_GRCh38_withIMGT.tar.gz --no-check-certifcate
 4. tar -xvzf PRG_MHC_GRCh38_withIMGT.tar.gz
-5. cd /path/to/App/hlaenv/opt/hla-la/src
+5. cd /path/to/Automation-of-HLA-typing/hlaenv/opt/hla-la/src
 6. wget https://www.dropbox.com/s/mnkig0fhaym43m0/reference_HLA_ASM.tar.gz
 7. tar -xvzf reference_HLA_ASM.tar.gz
 8. ../bin/HLA-LA --action prepareGraph --PRG_graph_dir ../graphs/PRG_MHC_GRCh38_withIMGT
@@ -52,9 +52,9 @@ If HLA-LA is manually compiled, you will need to edit the backend.sh file to poi
 
 ### **RScript installation and configuration**
 Renv can be set up by the following commands:
-1. mkdir -p /path/to/App/Renv
-2. conda create --prefix /path/to/App/Renv -c conda-forge r-base
-3. conda activate /path/to/App/Renv
+1. mkdir -p /path/to/Automation-of-HLA-typing/Renv
+2. conda create --prefix /path/to/Automation-of-HLA-typing/Renv -c conda-forge r-base
+3. conda activate /path/to/Automation-of-HLA-typing/Renv
 4. conda install -c -conda-forge r-tidyr r-diplyr
 5. conda deactivate
 
