@@ -42,7 +42,7 @@ The data package stil needs to be installed and indexed in order to compare CRAM
 3. wget http://www.well.ox.ac.uk/downloads/PRG_MHC_GRCh38_withIMGT.tar.gz --no-check-certifcate
 4. tar -xvzf PRG_MHC_GRCh38_withIMGT.tar.gz
 5. cd /path/to/Automation-of-HLA-typing/hlaenv/opt/hla-la/src
-6. wget https://www.dropbox.com/s/mnkig0fhaym43m0/reference_HLA_ASM.tar.gz
+6. wget https://www.dropbox.com/s/mnkig0fhaym43m0/reference_HLA_ASM.tar.gz --no-check-certificate
 7. tar -xvzf reference_HLA_ASM.tar.gz
 8. ../bin/HLA-LA --action prepareGraph --PRG_graph_dir ../graphs/PRG_MHC_GRCh38_withIMGT
 
