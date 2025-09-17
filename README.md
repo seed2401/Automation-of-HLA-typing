@@ -45,6 +45,7 @@ The data package stil needs to be installed and indexed in order to compare CRAM
 6. wget https://www.dropbox.com/s/mnkig0fhaym43m0/reference_HLA_ASM.tar.gz --no-check-certificate
 7. tar -xvzf reference_HLA_ASM.tar.gz
 8. ../bin/HLA-LA --action prepareGraph --PRG_graph_dir ../graphs/PRG_MHC_GRCh38_withIMGT
+9. cd ../../../..
 
 The final step may take a while and requires atleast ~8GB of free memory. Manual compilaton steps are available on the github page for HLA*LA at https://github.com/DiltheyLab/HLA-LA along with debugging steps if any errors are faced. Once the graph is prepared and indexed, activate the HLA-LA environment using the command conda activate /path/to/App/hlaenv.
 
