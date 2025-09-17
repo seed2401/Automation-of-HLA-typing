@@ -1,6 +1,6 @@
 ### **Introduction**
 
-This application integrates the HLA*LA tool developed by Alexander Dilthey and team available at https://github.com/DiltheyLab/HLA-LA. The repository contains most dependencies that are required to run the app, but a few files need to be installed as they are pivotal to a succesfsul run. These files include the reference genome file, HLA-LA and Rscript.
+This application integrates the HLA*LA tool developed by Alexander Dilthey and team available at https://github.com/DiltheyLab/HLA-LA. The repository contains most dependencies that are required to run the app, but a few files need to be installed as they are pivotal to a succesfsul run. These files include the reference genome file, HLA-LA, samtools and Rscript.
 
 The application is built to process CRAM/CRAI files and provide an excel compatible CSV file. If you need the entire CRAM file processed, simply upload the file when prompted. However, if you need only a part of the CRAM file processed, uncomment the REGION variable in the file backend.sh and enter the region you wish to analyse. After adding the REGION variable, edit step one of the backend.sh script. The new command should now be **./samtools-env/bin/samtools  view -b -T $refgenome -o $BAM_FILE $CRAM_FILE $REGION**
 
@@ -52,6 +52,10 @@ The final step may take a while and requires atleast ~8GB of free memory. Manual
 If HLA-LA is manually compiled, you will need to edit the backend.sh file to point to the right place. The command **cd ./hlaenv/opt/hla-la/src** will need to be editted in order to call the right file. Similarly, you will need to go back the same number of directories to point to the main App directory before closing the for loop. Currently, the script goes up 4 directories using the command **cd ../../../..**
 
 ### **RScript installation and configuration**
+Samtools can be downloaded using miniconda by the following command:
+conda create -p /path/to/Automation-of-HLA-typing/samtools-env -c bioconda -c conda-forge samtools=1.14 -y
+
+### **RScript installation and configuration**
 Renv can be set up by the following commands:
 1. mkdir -p /path/to/Automation-of-HLA-typing/Renv
 2. conda create --prefix /path/to/Automation-of-HLA-typing/Renv -c conda-forge r-base
@@ -68,4 +72,4 @@ This outputs a message saying "running on http://127.0.0.1:5000" Click on this l
 A test CRAM file has been provided below to test the functioning of the app.
 **Test file**: HG01879.alt_bwamem_GRCh38DH.20150718.ACB.low_coverage.cram
 
-**NOTE:** If you install HLA-LA and Renv in a directory other than where you clone this repositry, the path to these tools need to be changed in the backend.sh script to point to the right files. Hence, installing the files in the same directory as the clone is recommended.
+**NOTE:** If you install HLA-LA and Renv in a directory other than where you clone this repositry, the path to these tools need to be changed in the backend.sh script to point to the right files. Hence, installing the files in the same directory as the clone is recommended. Additionally, confirm that the line endings are LF and not CRLF in Windows Monitors.
