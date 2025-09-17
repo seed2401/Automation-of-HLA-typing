@@ -56,7 +56,7 @@ Renv can be set up by the following commands:
 1. mkdir -p /path/to/Automation-of-HLA-typing/Renv
 2. conda create --prefix /path/to/Automation-of-HLA-typing/Renv -c conda-forge r-base
 3. conda activate /path/to/Automation-of-HLA-typing/Renv
-4. conda install -c -conda-forge r-tidyr r-diplyr
+4. conda install -c conda-forge r-tidyr r-dplyr
 5. conda deactivate
 
 ### **Instructions to run the app**
