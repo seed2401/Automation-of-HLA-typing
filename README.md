@@ -51,7 +51,7 @@ The final step may take a while and requires atleast ~8GB of free memory. Manual
 
 If HLA-LA is manually compiled, you will need to edit the backend.sh file to point to the right place. The command **cd ./hlaenv/opt/hla-la/src** will need to be editted in order to call the right file. Similarly, you will need to go back the same number of directories to point to the main App directory before closing the for loop. Currently, the script goes up 4 directories using the command **cd ../../../..**
 
-### **RScript installation and configuration**
+### **SAMtools installation and configuration**
 Samtools can be downloaded using miniconda by the following command:
 conda create -p /path/to/Automation-of-HLA-typing/samtools-env -c bioconda -c conda-forge samtools=1.14 -y
 
