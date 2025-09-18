@@ -10,7 +10,7 @@ The application is built to process CRAM/CRAI files and provide an excel compati
 
 The app is made for linux based systems i.e macOS and the commands do not work on Windows Powershell. It is recommended that both macOS and Windows users work on Visual Studio Code (VS Code) as it helps in keeping tab of all dependencies. VS code is free to download via https://code.visualstudio.com/. Windows users can initialise a WSL window through Ubuntu 22.04LTS.
 
-### **Step 1: Clone the GitHub repository**###
+### **Step 1: Clone the GitHub repository**
 git clone https://github.com/seed2401/Automation-of-HLA-typing
 
 ### **Step 2: Download Reference genome**
