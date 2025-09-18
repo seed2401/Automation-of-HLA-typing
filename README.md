@@ -70,6 +70,7 @@ Once the repository has been cloned and all packages have been installed and con
 This outputs a message saying "running on http://127.0.0.1:5000" Click on this link and upload the CRAM file/files that require HLA calling along with /path/to/output directory. You can track progress by reading the commands on the terminal, keeping track of new files that are being added to the output direcotry or by running the command "top" in a new terminal window.
 
 A test CRAM file has been provided below to test the functioning of the app.
-**Test file**: HG01879.alt_bwamem_GRCh38DH.20150718.ACB.low_coverage.cram
+
+**Test file**: https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/data/ACB/HG01879/alignment/HG01879.alt_bwamem_GRCh38DH.20150718.ACB.low_coverage.cram
 
 **NOTE:** If you install HLA-LA and Renv in a directory other than where you clone this repositry, the path to these tools need to be changed in the backend.sh script to point to the right files. Hence, installing the files in the same directory as the clone is recommended. Additionally, confirm that the line endings are LF and not CRLF in Windows Monitors.
