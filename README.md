@@ -10,7 +10,10 @@ The application is built to process CRAM/CRAI files and provide an excel compati
 
 The app is made for linux based systems i.e macOS and the commands do not work on Windows Powershell. It is recommended that both macOS and Windows users work on Visual Studio Code (VS Code) as it helps in keeping tab of all dependencies. VS code is free to download via https://code.visualstudio.com/. Windows users can initialise a WSL window through Ubuntu 22.04LTS.
 
-### **Reference genome**
+### **Step 1: Clone the GitHub repository**###
+git clone https://github.com/seed2401/Automation-of-HLA-typing
+
+### **Step 2: Download Reference genome**
 
 You can download the reference genome file using the link below https://drive.google.com/uc?export=download&id=1MtsSA9TTzHyUq82wshRisWap48c-cCkv. (File size: 3GB)
 
@@ -26,7 +29,7 @@ Miniconda can be installed into the same directory as the cloned repository by f
 3. source $HOME/miniconda3/bin/activate
 4. conda --version
 
-### **HLA-LA installation and configuration**
+### **Step 3: HLA-LA installation and configuration**
 
 HLA-LA can be installed via conda by the following steps:
 1. conda config --add channels default
@@ -51,11 +54,11 @@ The final step may take a while and requires atleast ~8GB of free memory. Manual
 
 If HLA-LA is manually compiled, you will need to edit the backend.sh file to point to the right place. The command **cd ./hlaenv/opt/hla-la/src** will need to be editted in order to call the right file. Similarly, you will need to go back the same number of directories to point to the main App directory before closing the for loop. Currently, the script goes up 4 directories using the command **cd ../../../..**
 
-### **SAMtools installation and configuration**
+### **Step 4: SAMtools installation and configuration**
 Samtools can be downloaded using miniconda by the following command:
 conda create -p /path/to/Automation-of-HLA-typing/samtools-env -c bioconda -c conda-forge samtools=1.14 -y
 
-### **RScript installation and configuration**
+### **Step 5: RScript installation and configuration**
 Renv can be set up by the following commands:
 1. mkdir -p /path/to/Automation-of-HLA-typing/Renv
 2. conda create --prefix /path/to/Automation-of-HLA-typing/Renv -c conda-forge r-base
